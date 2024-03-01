@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  background-color: #595959; /* Substitua #222 pela cor desejada em formato hexadecimal, RGB, ou nome da cor */
+}

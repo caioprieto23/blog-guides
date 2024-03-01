@@ -1,18 +1,18 @@
-<%= form_with scope: :article, url: articles_path, local: true do |form| %>
-  <p>
-    <%= form.label :Título %><br>
-    <%= form.text_field :title %>
-  </p>
- 
-  <p>
-    <%= form.label :Descrição %><br>
-    <%= form.text_area :text %>
-  </p>
- 
-  <p>
-    <%= form.submit %>
-  </p>
-  <p>
-    <%= link_to 'Voltar', articles_path %>
-  </p>
-<% end %>
+<section class="container-lg d-flex align-items-center justify-content-center text-center" style="min-height: 100vh;">
+  <%= form_with scope: :article, url: articles_path, local: true do |form| %>
+    <p>
+      <%= form.label :Nome, class: "form-label" %><br>
+      <%= form.text_field :title, class: "form-control" %>
+    </p>
+  
+    <p>
+      <%= form.label :Descrição, class: "form-label text-left" %><br>
+      <%= form.text_area :text, class: "form-control" %>
+    </p>
+  
+    <p>
+      <%= form.submit class: 'btn btn-primary custom-submit-class' %>
+      <%= link_to 'Voltar', articles_path, class: 'btn btn-secondary' %>
+    </p>
+  <% end %>
+</section>
