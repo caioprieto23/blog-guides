@@ -1,3 +1,3 @@
 class Book < ApplicationRecord
-  has_many :authors, inverse_of: :books
+  belongs_to :author, inverse_of: :books
 end

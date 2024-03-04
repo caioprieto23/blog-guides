@@ -14,9 +14,9 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
    
     if @article.update(article_params)
-      redirect_to @article
+      redirect_to root_path
     else
-      render 'edit'
+      render 'index'
     end
   end
 
