@@ -3,6 +3,8 @@ class ArticlesController < ApplicationController
   end
 
   def index
+    return @articles = Article.where(id: number_query) if number_query.present?
+
     @articles = Article.all
   end
 
@@ -42,6 +44,14 @@ class ArticlesController < ApplicationController
   end
 
   private
+
+  def number_query
+    params[:number_query]
+  end
+
+  def query
+    params[:query]
+  end
 
   def article_params
     params.require(:article).permit(:id, :title, :text)

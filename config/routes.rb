@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  root 'articles#index'
+  root 'welcome#index'
   
-  resources :articles 
+  resources :welcome, only: :index
+  resources :articles do
+    collection do
+      get :search
+    end
+  end
+
+  resources :vinyls
 end

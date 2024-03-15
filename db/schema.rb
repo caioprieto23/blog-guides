@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_10_182045) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_15_024355) do
   create_table "account_histories", force: :cascade do |t|
     t.integer "account_id"
     t.integer "credit_rating"
@@ -115,6 +115,19 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_10_182045) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "vinyls", force: :cascade do |t|
+    t.integer "author_id"
+    t.datetime "published_at"
+    t.string "name"
+    t.text "description"
+    t.decimal "value"
+    t.integer "quantity"
+    t.string "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_vinyls_on_author_id"
   end
 
   add_foreign_key "comments", "articles"
