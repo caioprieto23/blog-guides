@@ -3,6 +3,8 @@ class VinylsController < ApplicationController
   end
 
   def index
+    return @vinyls = Vinyl.where(id: number_query) if number_query.present?
+
     @vinyls = Vinyl.all
   end
 
@@ -17,6 +19,10 @@ class VinylsController < ApplicationController
   end
 
   private
+
+  def number_query
+    params[:number_query]
+  end
 
   def vinyls_params 
     params.require(:vinyl).permit(:id, :name, :description, :author_id)
