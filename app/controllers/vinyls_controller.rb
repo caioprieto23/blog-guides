@@ -4,6 +4,7 @@ class VinylsController < ApplicationController
 
   def index
     return @vinyls = Vinyl.where(id: number_query) if number_query.present?
+    return @vinyls = Vinyl.where(name: query) if query.present?
 
     @vinyls = Vinyl.all
   end
@@ -19,6 +20,10 @@ class VinylsController < ApplicationController
   end
 
   private
+
+  def query
+    params[:query]
+  end
 
   def number_query
     params[:number_query]
